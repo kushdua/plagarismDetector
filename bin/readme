@@ -1,0 +1,55 @@
+----------------------
+Command Line Arguments
+----------------------
+Paste the jar file and source text file in one folder run the following command.
+
+java -jar PlagiarismDetector.jar syns.txt input1.txt input2.txt
+
+
+1) file name for a list of synonyms
+2) input file 1
+3) input file 2
+4) (optional) the number N, the tuple size.  If not supplied, the default should be N=3.
+
+----------------
+Design Decisions
+-----------------
+1. Singleton Detector class responsible for detecting the plagiarism based on N-tuple comparison
+2. Each Tuple match is counted as matching or not matching and percentage is calculated total number of comparisons that are being made
+3. FileHandler class to deal with file I/O specific, is source of input is not file a new Handler can easily be imported and used.
+4. TupleMap has value to count for frequency of occurrences that could be used to check against one - one tuple matching (not
+really used in this algorithm)
+
+----------
+Algorithm
+----------
+The Algorithm is broken into following main steps
+1. Synonym list is broken into HashMap such that all synonyms except the first one point to the first one as (key-value) pair.
+2. All synonyms in both the input Strings are replaced using synonym map
+3. Second string file is parsed and all tuples are constructed and added to tupleMap.
+4. First string file is parsed and all the tuples are checked against tubpleMay Key for matching
+
+-----------
+Assumptions
+-----------
+1. If tuple size is more than number of words in any file than 0% is returned and any incorrect tuble size will result in defaulttuple size
+2. Tuple is considered as matching tuple if and only if all the words are same (or synonym) in the exact order
+Example "for a run" and "run for a” is not considered as matching tuple
+3. Synonym list file is in the correct format.
+
+-----------
+Limitations
+-----------
+1. Only Alpha-Numeric words are considered as a word, everything else is pretty much a word delimiter. In the Detector Class,
+there is a constant for regex pattern matching that can be modified to include/exclude to delimiter list.
+For example auto-reload is considered as two words instead of one.
+2. Multiple language not supported and special characters such as (ê,â etc.) are still considered as word delimiter.
+3. Active vs passive sentence structure can still trick the detector
+4. Sentence restructuring and copy paste of text are not 100% tracked because some new set of tuples will be created and algorithm 
+respect the order of the words in the tuple.
+
+-------------
+Alternatives
+-------------
+1. A seperate class "Tuple" to handle all tuple related operations such as toString(), comparater<>(tuple1, tuple2) and its own
+set of operations could have made the design even more flexible and may be better.
