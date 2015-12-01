@@ -4,11 +4,11 @@ Description
 The algo performs plagiarism detection using a N-tuple comparison algorithm allowing for synonyms in the text.
 
 The program takes in 3 required arguments, and one optional.  In other cases such as no arguments, the program prints out usage instructions.
-
-1) file name for a list of synonyms
-2) input file 1
-3) input file 2
-4) (optional) the number N, the tuple size.  If not supplied, the default should be N=3.
+<br>
+1) file name for a list of synonyms<br>
+2) input file 1<br>
+3) input file 2<br>
+4) (optional) the number N, the tuple size.  If not supplied, the default should be N=3.<br>
 
 The synonym file has lines each containing one group of synonyms.  For example a line saying "run sprint jog" means these words should be treated as equal.
 
@@ -28,11 +28,11 @@ really used in this algorithm)
 ----------
 Algorithm
 ----------
-The Algorithm is broken into following main steps
-1. Synonym list is broken into HashMap such that all synonyms except the first one point to the first one as (key-value) pair.
-2. All synonyms in both the input Strings are replaced using synonym map
-3. Second string file is parsed and all tuples are constructed and added to tupleMap.
-4. First string file is parsed and all the tuples are checked against tubpleMay Key for matching
+The Algorithm is broken into following main steps<br>
+1. Synonym list is broken into HashMap such that all synonyms except the first one point to the first one as (key-value) pair.<br>
+2. All synonyms in both the input Strings are replaced using synonym map<br>
+3. Second string file is parsed and all tuples are constructed and added to tupleMap.<br>
+4. First string file is parsed and all the tuples are checked against tubpleMay Key for matching<br>
 
 -----------
 Assumptions
