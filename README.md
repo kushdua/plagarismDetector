@@ -1,9 +1,9 @@
 ----------------------
 Description
 ----------------------
-The also performs plagiarism detection using a N-tuple comparison algorithm allowing for synonyms in the text.
+The algo performs plagiarism detection using a N-tuple comparison algorithm allowing for synonyms in the text.
 
-The program should take in 3 required arguments, and one optional.  In other cases such as no arguments, the program should print out usage instructions.
+The program takes in 3 required arguments, and one optional.  In other cases such as no arguments, the program prints out usage instructions.
 
 1) file name for a list of synonyms
 2) input file 1
@@ -12,9 +12,9 @@ The program should take in 3 required arguments, and one optional.  In other cas
 
 The synonym file has lines each containing one group of synonyms.  For example a line saying "run sprint jog" means these words should be treated as equal.
 
-The input files should be declared plagiarized based on the number of N-tuples in file1 that appear in file2, where the tuples are compared by accounting for synonyms as described above.  For example, the text "go for a run" has two 3-tuples, ["go for a", "for a run"] both of which appear in the text "go for a jog".
+The input file1 should be declared plagiarized based on the number of N-tuples in file1 that appear in file2 (in other words we are looking for tuples in file1 that matches a source (file2) against which we are checking the percentage of plagarism in file1), where the tuples are compared by accounting for synonyms as described above.  For example, the text "go for a run" (file1) has two 3-tuples, ["go for a", "for a run"] both of which appear in the text "go for a jog" (file2).
 
-The output of the program should be the percent of tuples in file1 which appear in file2.  So for the above example, the output would be one line saying "100%".  In another example, for texts "go for a run" and "went for a jog" and N=3 we would output "50%" because only one 3-tuple in the first text appears in the second one.
+The output of the program should be the percent of tuples in file1 which appear in file2.  So for the above example, the output would be one line saying "100%".  In another example, for texts "go for a run" and "went for a jog" and N=3 we would output "50%" because only one tuple in the first text appears in the second one.
 
 ----------------
 Design Decisions
